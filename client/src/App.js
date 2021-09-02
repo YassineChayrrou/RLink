@@ -1,15 +1,22 @@
 import React, { StrictMode } from "react";
 import { render } from "react-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import "./css/slate-bootstrap.min.css";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Home from "./components/Home";
+import About from "./components/About";
 
 const App = () => {
   return (
     <div>
-      <Header />
-      <h1>Welcome to RLink</h1>
-      <Footer />
+      <Router>
+        <Header />
+        <Switch>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/about" component={About}></Route>
+        </Switch>
+      </Router>
     </div>
   );
 };

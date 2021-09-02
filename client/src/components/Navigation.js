@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import logo from "../images/logo-1.svg";
+import { Link } from "react-router-dom";
 import "../css/styles.css";
 
 class Navigation extends Component {
@@ -8,20 +9,26 @@ class Navigation extends Component {
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand>
-            <img src={logo} className="logo" />
-          </Navbar.Brand>
-          <Navbar.Brand>RLink</Navbar.Brand>
+          <Link to="/">
+            <Navbar.Brand>
+              <img src={logo} className="logo" />
+            </Navbar.Brand>
+            <Navbar.Brand>RLink</Navbar.Brand>
+          </Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link>About</Nav.Link>
-              <Nav.Link>Contact</Nav.Link>
+              <Nav.Link>
+                <Link to="/about">About</Link>
+              </Nav.Link>
+              <Nav.Link>
+                <Link to="/contact">Contact us</Link>
+              </Nav.Link>
             </Nav>
             <Nav>
               <Nav.Link>Login</Nav.Link>
               <Nav.Link>
-                <Button variant="secondary" size="sm" md={2}>
+                <Button variant="secondary" size="sm">
                   Signup
                 </Button>
               </Nav.Link>
