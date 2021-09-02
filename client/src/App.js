@@ -1,6 +1,6 @@
 import React, { StrictMode } from "react";
 import { render } from "react-dom";
-import "./bootstrap/sketchy-bootstrap.min.css";
+import "./css/slate-bootstrap.min.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 

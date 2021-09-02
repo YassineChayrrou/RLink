@@ -1,7 +1,7 @@
 {
-  "name": "adopt-me",
+  "name": "r-link",
   "version": "1.0.0",
-  "description": "The Adopt Me pet adoption app",
+  "description": "Realtime navigation and analog control of remote ros enabled robots react web application",
   "main": "src/index.js",
   "scripts": {
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
@@ -28,6 +28,7 @@
   "dependencies": {
     "components": "^0.1.0",
     "react": "17.0.1",
+    "react-bootstrap": "^1.6.1",
     "react-dom": "17.0.1",
     "react-router-dom": "5.2.0"
   },
