@@ -9,6 +9,7 @@ In this README you will get to setup your ros environment in order to be able to
     - Note: You can run this locally on docker container more about it in this [Link](https://varhowto.com/install-ros-noetic-docker/)
 
 2. **Installing ROS:**
+
 Your friend in this part is <a href="http://wiki.ros.org/noetic/Installation/Ubuntu" target="_blank">ROSWiki Ubuntu Installation guide</a>
 
 - How to install ROS noetic on ubuntu?
@@ -44,4 +45,15 @@ Your friend in this part is <a href="http://wiki.ros.org/noetic/Installation/Ubu
     sudo rosdep update
     ```
 
+    **IMPORTANT:**
+    - In order to make sure you won't have overlapping streams make sure to install packages as it is shown in ros wiki for example if you are to install rosbash package you do `sudo apt install ros-noetic-rosbash` same of other packages in case ros complains about missing dependencies and such but all in all as you follow along it should be fine.
+
     **Congratulations you just setup your ROS noetic now let's get to the fun stuff...**
+
+3. **Setting up ROS environment:**
+
+In this section we will setup our environment to prepare our simulation and other necessary packages.
+
+- Install rosbash which will give you the ability to have ros command tools on your bash terminal.
+```sudo apt install ros-noetic-rosbash```
+- Install rosBridge package to enable <span style="color: red">socket</span> and <span style="color: red">websocket</span> access to ros, this is what we are going to use later using the library `ros.js` in order to control our simulation from web interface.
