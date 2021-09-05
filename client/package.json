@@ -8,7 +8,7 @@
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "dev": "parcel src/index.html"
   },
-  "author": "Brian Holt <btholt+citrv6@gmail.com>",
+  "author": "Yassine Chayrrou <yassine.chayrrou@gmail.com>",
   "license": "Apache-2.0",
   "devDependencies": {
     "@babel/core": "7.12.16",
@@ -30,7 +30,8 @@
     "react": "17.0.1",
     "react-bootstrap": "^1.6.1",
     "react-dom": "17.0.1",
-    "react-router-dom": "5.2.0"
+    "react-router-dom": "5.2.0",
+    "roslib": "^1.1.0"
   },
   "browserslist": [
     "last 2 Chrome versions"
