@@ -55,5 +55,12 @@ Your friend in this part is <a href="http://wiki.ros.org/noetic/Installation/Ubu
 In this section we will setup our environment to prepare our simulation and other necessary packages.
 
 - Install rosbash which will give you the ability to have ros command tools on your bash terminal.
-```sudo apt install ros-noetic-rosbash```
+```
+sudo apt install ros-noetic-rosbash
+```
+
 - Install rosBridge package to enable <span style="color: red">socket</span> and <span style="color: red">websocket</span> access to ros, this is what we are going to use later using the library `ros.js` in order to control our simulation from web interface.
+
+```
+sudo apt install ros-noetic-rosbridge-server
+```
