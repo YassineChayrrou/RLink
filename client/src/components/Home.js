@@ -1,9 +1,19 @@
 import React, { Component } from "react";
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Connection from "./Connection";
+import { Container } from "react-bootstrap";
 
 class Home extends Component {
+  state = {};
+  checks() {
+    return "hello";
+  }
   render() {
-    return <h1>this is body</h1>;
+    return (
+      <Container>
+        <h1 className="text-center mt-3">Robot Control Page</h1>
+        <Connection />
+      </Container>
+    );
   }
 }
 
