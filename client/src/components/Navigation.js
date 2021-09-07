@@ -9,25 +9,27 @@ class Navigation extends Component {
     return (
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
-          <Link to="/">
+          <Nav.Link as={Link} to="/">
             <Navbar.Brand>
               <img src={logo} className="logo" />
             </Navbar.Brand>
             <Navbar.Brand>RLink</Navbar.Brand>
-          </Link>
+          </Nav.Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link>
-                <Link to="/about">About</Link>
+              <Nav.Link as={Link} to="/about">
+                About
               </Nav.Link>
-              <Nav.Link>
-                <Link to="/contact">Contact us</Link>
+              <Nav.Link as={Link} to="/contact">
+                Contact us
               </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link>Login</Nav.Link>
-              <Nav.Link>
+              <Nav.Link as={Link} to="/auth">
+                Login
+              </Nav.Link>
+              <Nav.Link as={Link} to="/auth">
                 <Button variant="secondary" size="sm">
                   Signup
                 </Button>
