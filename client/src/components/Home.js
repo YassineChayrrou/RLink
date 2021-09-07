@@ -1,20 +1,13 @@
-import React, { Component } from "react";
-import Connection from "./Connection";
-import { Container } from "react-bootstrap";
+import React, { useState } from "react";
+import WebsocketForm from "./WebsocketForm";
+import { Container, Col, Row, Button } from "react-bootstrap";
+import Teleoperation from "./Teleoperation";
 
-class Home extends Component {
-  state = {};
-  checks() {
-    return "hello";
-  }
-  render() {
-    return (
-      <Container>
-        <h1 className="text-center mt-3">Robot Control Page</h1>
-        <Connection />
-      </Container>
-    );
-  }
+export default function Home() {
+  return (
+    <Container>
+      <h1 className="text-center mt-3">Robot Control Page</h1>
+      <WebsocketForm />
+    </Container>
+  );
 }
-
-export default Home;
