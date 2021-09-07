@@ -1,8 +1,10 @@
 import React, { StrictMode } from "react";
 import { render } from "react-dom";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import "./css/slate-bootstrap.min.css";
-// import Footer from "./components/Footer";
+// import "./css/slate-bootstrap.min.css";
+// import "./css/superhero-bootstrap.min.css";
+import "./css/lux-bootstrap.min.css";
+// import "./css/slate-bootstrap.min.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import About from "./components/About";
