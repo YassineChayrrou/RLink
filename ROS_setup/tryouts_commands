@@ -1,0 +1,11 @@
+# testing client with turtlesimulator base commands
+
+sudo apt install ros-noetic-rosbridge-server
+sudo apt install ros-noetic-turtlesim # per terminal
+
+roscore # command to run on one window terminal
+rosrun turtlesim turtlesim_node
+roslaunch rosbridge_server rosbridge_websocket.launch
+
+----> Test by npm install and loggin in [feature to setup still working on it]
+`rostopic list` : lists different ros topics
