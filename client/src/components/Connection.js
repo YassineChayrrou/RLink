@@ -3,37 +3,62 @@ import { Alert, Container } from "react-bootstrap";
 
 class Connection extends Component {
   state = { connected: false, ros: null, message: null };
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state.ros = new window.ROSLIB.Ros();
   }
 
-  componentDidMount() {
+  initConnection() {
     this.state.ros.on("connection", () => {
       this.setState({ connected: true, message: "Robot connected" });
     });
     this.state.ros.on("close", () => {
       this.setState({ connected: false, message: "Robot disconnected" });
-      console.log("disconnected");
       setTimeout(() => {
-        this.state.ros.connect("ws://0.0.0.0:9090");
+        this.state.ros.connect(this.props.address);
       }, 5000);
     });
-    this.state.ros.connect("ws://0.0.0.0:9090");
+    this.state.ros.on("error", (error) => {
+      console.log("Error Connecting to websocket server", error);
+      this.setState({
+        connected: false,
+        message: `Failed to construction websocket, the URL ${this.props.wslink} is Invalid`,
+      });
+      exit();
+    });
+    if (this.props.isConnected === true) {
+      this.state.ros.connect(this.props.wslink);
+    } else if (!this.props.isConnected) {
+      this.state.ros.close();
+    }
+  }
+  componentDidMount(props) {
+    this.initConnection();
+  }
+  componentDidUpdate(props) {
+    this.initConnection();
   }
 
   render() {
-    return (
-      <Container className="d-flex justify-content-center">
-        <Alert
-          className="w-75 text-center m-3"
-          style={{ color: this.state.connected ? "#155724" : "#721c24" }}
-          variant={this.state.connected ? "success" : "danger"}
-        >
-          <strong>{this.state.message}</strong>
-        </Alert>
-      </Container>
-    );
+    const Connected = () => {
+      if (this.props.isConnected) {
+        return (
+          <Container className="d-flex justify-content-center">
+            <Alert
+              className="w-75 text-center m-3"
+              style={{ color: this.state.connected ? "#155724" : "#721c24" }}
+              variant={this.state.connected ? "success" : "danger"}
+            >
+              <strong>{this.state.message}</strong>
+            </Alert>
+          </Container>
+        );
+      } else {
+        return <div></div>;
+      }
+    };
+
+    return <Connected />;
   }
 }
 
