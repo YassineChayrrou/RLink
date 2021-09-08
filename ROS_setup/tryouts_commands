@@ -9,3 +9,44 @@ roslaunch rosbridge_server rosbridge_websocket.launch
 
 ----> Test by npm install and loggin in [feature to setup still working on it]
 `rostopic list` : lists different ros topics
+
+
+# Advanced Mapping and Navigation stack on ros:
+
+## setup:
+
+sudo apt install ros-noetic-navigation
+sudo apt install ros-noetic-slam-gmapping
+
+# create workspace
+
+mkdir -p ~/rlink_ws/src
+cd ~/rlink_ws
+catkin_make
+
+# setup TurtleBot3 for ros noetic
+
+cd ~/rlink_ws/src
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git -b noetic-devel
+git clone  https://github.com/ROBOTIS-GIT/turtlebot3.git -b noetic-devel
+cd ~/rlink && catkin_make
+cd ~/rlink/src
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+cd .. && catkin_make
+
+# modify bashrc
+Inside the bashrc file put the following aliases to make it easier access to different executables in the alias section.
+
+alias burger='export TURTLEBOT3_MODEL=burger'
+alias waffle='export TURTLEBOT3_MODEL=waffle'
+alias tb3fake='roslaunch turtlebot3_fake turtlebot3_fake.launch'
+alias tb3teleop='roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch'
+alias tb3='roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch'
+alias tb3maze='roslaunch turtlebot3_gazebo turtlebot3_world.launch'
+alias tb3house='roslaunch turtlebot3_gazebo turtlebot3_house.launch'
+also at the end of the file, write the following commands
+
+source /opt/ros/noetic/setup.bash
+source /home/akoubaa/catkin_ws/devel/setup.bash
+export TURTLEBOT3_MODEL=waffle
+export SVGA_VGPU10=0
