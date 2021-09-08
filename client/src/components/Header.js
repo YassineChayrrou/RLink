@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Navigation from "./Navigation";
+import CustomNavbar from "./CustomNavbar";
 
 class Header extends Component {
   render() {
-    return <Navigation />;
+    return <CustomNavbar />;
   }
 }
 

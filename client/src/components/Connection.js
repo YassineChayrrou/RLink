@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Alert, Container } from "react-bootstrap";
+import { Alert, Container, Col, Row } from "react-bootstrap";
 import Teleoperation from "./Teleoperation";
+import Navigation from "./Navigation";
 
 class Connection extends Component {
   state = { connected: false, ros: null, message: null };
@@ -42,25 +43,38 @@ class Connection extends Component {
   }
   componentDidUpdate(props) {
     this.initConnection();
+    // console.log(this.state.ros.getTopics);
+    this.state.ros.getTopics((e) => {
+      console.log(e);
+    });
   }
 
   render() {
     const Connected = () => {
       if (this.props.isConnected) {
         return (
-          <Container className="d-flex justify-content-center flex-column">
-            <Alert
-              className="w-75 text-center m-3"
-              style={{ color: this.state.connected ? "#155724" : "#721c24" }}
-              variant={this.state.connected ? "success" : "danger"}
-            >
-              <strong>{this.state.message}</strong>
-            </Alert>
-            <Container>
-              <Teleoperation />
-              <Map />
+          <div>
+            <Container className="d-flex justify-content-center">
+              <Alert
+                className="w-75 text-center m-3"
+                style={{ color: this.state.connected ? "#155724" : "#721c24" }}
+                variant={this.state.connected ? "success" : "danger"}
+              >
+                <strong>{this.state.message}</strong>
+              </Alert>
             </Container>
-          </Container>
+            <Row
+              // style={{ backgroundColor: "red" }}
+              className="d-flex justify-content-center align-items-center"
+            >
+              <Col xs="auto" className="my-3">
+                <Navigation />
+              </Col>
+              <Col xs="auto" className="my-3">
+                <Teleoperation ros={this.state.ros} />
+              </Col>
+            </Row>
+          </div>
         );
       } else {
         return <div></div>;
