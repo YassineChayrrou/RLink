@@ -43,6 +43,10 @@ class Connection extends Component {
   }
   componentDidUpdate(props) {
     this.initConnection();
+    // console.log(this.state.ros.getTopics);
+    this.state.ros.getTopics((e) => {
+      console.log(e);
+    });
   }
 
   render() {
@@ -60,14 +64,14 @@ class Connection extends Component {
               </Alert>
             </Container>
             <Row
-              style={{ backgroundColor: "red" }}
+              // style={{ backgroundColor: "red" }}
               className="d-flex justify-content-center align-items-center"
             >
-              <Col xm={{ order: "last" }} className="my-3">
-                <Teleoperation />
-              </Col>
-              <Col xm={{ order: "first" }} className="my-3">
+              <Col xs="auto" className="my-3">
                 <Navigation />
+              </Col>
+              <Col xs="auto" className="my-3">
+                <Teleoperation ros={this.state.ros} />
               </Col>
             </Row>
           </div>
