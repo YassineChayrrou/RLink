@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Alert, Container, Col, Row } from "react-bootstrap";
 import Teleoperation from "./Teleoperation";
 import Navigation from "./Navigation";
+import Arrows from "./Arrows";
 
 class Connection extends Component {
   state = { connected: false, ros: null, message: null };
@@ -43,7 +44,6 @@ class Connection extends Component {
   }
   componentDidUpdate(props) {
     this.initConnection();
-    // console.log(this.state.ros.getTopics);
     this.state.ros.getTopics((e) => {
       console.log(e);
     });
@@ -63,15 +63,15 @@ class Connection extends Component {
                 <strong>{this.state.message}</strong>
               </Alert>
             </Container>
-            <Row
-              // style={{ backgroundColor: "red" }}
-              className="d-flex justify-content-center align-items-center"
-            >
+            <Row className="d-flex justify-content-center align-items-center">
               <Col xs="auto" className="my-3">
                 <Navigation />
               </Col>
               <Col xs="auto" className="my-3">
                 <Teleoperation ros={this.state.ros} />
+              </Col>
+              <Col xs="auto" className="my-3">
+                <Arrows ros={this.state.ros} />
               </Col>
             </Row>
           </div>
