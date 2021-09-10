@@ -50,3 +50,13 @@ source /opt/ros/noetic/setup.bash
 source /home/akoubaa/catkin_ws/devel/setup.bash
 export TURTLEBOT3_MODEL=waffle
 export SVGA_VGPU10=0
+
+# setup simulation topics
+
+export TURTLEBOT3_MODEL=waffle
+
+roscore
+roslaunch turtlebot3_gazeebo turtlebot3_house.launch
+roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=/home/ros/tb3_house_map.yaml
+
+Please note that map_file:=/home/ros/tb3_house_map.yaml must point to the correct map file location.
