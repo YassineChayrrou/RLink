@@ -8,8 +8,8 @@ const Arrows = (props) => {
   function teleoperationPublisher(e) {
     const cmdVel = new window.ROSLIB.Topic({
       ros: props.ros,
-      //   name: "/cmd_vel",
-      name: "/turtle1/cmd_vel",
+      name: "/cmd_vel",
+      // name: "/turtle1/cmd_vel",
       messageType: "geometry_msgs/Twist",
     });
 
