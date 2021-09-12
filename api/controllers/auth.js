@@ -13,7 +13,7 @@ exports.register = async (req, res, next) => {
       password,
     });
 
-    await sendToken(user, 201, res);
+    sendToken(user, 201, res);
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -53,7 +53,7 @@ exports.login = async (req, res, next) => {
     }
 
     //generates a jsonwebtoken and send it as response
-    await sendToken(user, 201, res);
+    sendToken(user, 201, res);
   } catch (error) {
     res.status(500).json({
       success: false,
@@ -63,7 +63,27 @@ exports.login = async (req, res, next) => {
 };
 
 /* ForgotPassword Block*/
-exports.forgotPassword = (req, res, next) => {
+exports.forgotPassword = async (req, res, next) => {
+  const { email } = req.body;
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return next(new ErrorResponse("Verify email could not be sent"));
+    }
+
+    const resetToken = user.getResetPasswordToken();
+
+    await user.save();
+
+    const resetPasswordURL = `http://localhost:1234/passwordreset/${resetToken}`;
+
+    const message = `
+    <h1>A password change have been requested</h1>
+    <p>Please go to this link to continue</p>
+    <a href="${resetPasswordURL} clickTracking=off>${resetPasswordURL}</a>
+    `;
+  } catch (error) {}
   res.send("Forgot Password Route");
 };
 
@@ -74,6 +94,6 @@ exports.resetPassword = (req, res, next) => {
 
 const sendToken = (user, statusCode, res) => {
   const token = user.getToken();
-  console.log(token);
+  // console.log(token);
   res.status(statusCode).json({ success: true, token });
 };
