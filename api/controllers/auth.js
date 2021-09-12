@@ -30,12 +30,16 @@ exports.login = async (req, res, next) => {
   // res.send("Login Route");
   const { email, password } = req.body;
 
-  if (!email || !password) {
+  if (!email && !password) {
     // res.status(400).json({
     //   success: false,
     //   error: "Please provide and email or password",
     // });
     return next(new ErrorResponse("Missing email and password", 401));
+  }
+
+  if (!password) {
+    return next(new ErrorResponse("Missing password"));
   }
 
   try {
