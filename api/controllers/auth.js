@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const ErrorResponse = require("../utils/errorResponse");
 const sendResetEmail = require("../utils/sendResetEmail");
+const crypto = require("crypto");
 
 /* Register block */
 exports.register = async (req, res, next) => {
@@ -53,7 +54,7 @@ exports.login = async (req, res, next) => {
       return next(new ErrorResponse("Invalid Credentials", 404));
     }
 
-    //generates a jsonwebtoken and send it as response
+    // generates a jsonwebtoken and send it as response
     sendToken(user, 201, res);
   } catch (error) {
     res.status(500).json({
@@ -77,7 +78,7 @@ exports.forgotPassword = async (req, res, next) => {
 
     await user.save();
 
-    const resetPasswordURL = `http://localhost:5000/passwordreset/${resetToken}`;
+    const resetPasswordURL = `http://localhost:5000/resetpassword/${resetToken}`;
 
     const message = `
     <h1>A password change have been requested</h1>
@@ -107,12 +108,34 @@ exports.forgotPassword = async (req, res, next) => {
 };
 
 /* ResetPassword Block*/
-exports.resetPassword = (req, res, next) => {
-  res.send("Reset Password Route");
+exports.resetPassword = async (req, res, next) => {
+  const resetPasswordToken = crypto
+    .createHash("sha256")
+    .update(req.params.resetToken)
+    .digest("hex");
+
+  try {
+    const user = await User.findOne({
+      resetPasswordToken,
+      resetPasswordExpire: { $gt: Date.now() },
+    });
+
+    user.password = req.body.password;
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpire = undefined;
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      data: "Password updated successfully",
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
 
+// separate function invoked when sending tokens to user
 const sendToken = (user, statusCode, res) => {
   const token = user.getToken();
-  // console.log(token);
   res.status(statusCode).json({ success: true, token });
 };
