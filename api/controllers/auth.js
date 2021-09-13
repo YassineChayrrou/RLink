@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const ErrorResponse = require("../utils/errorResponse");
+const sendResetEmail = require("../utils/sendResetEmail");
 
 /* Register block */
 exports.register = async (req, res, next) => {
@@ -76,15 +77,33 @@ exports.forgotPassword = async (req, res, next) => {
 
     await user.save();
 
-    const resetPasswordURL = `http://localhost:1234/passwordreset/${resetToken}`;
+    const resetPasswordURL = `http://localhost:5000/passwordreset/${resetToken}`;
 
     const message = `
     <h1>A password change have been requested</h1>
     <p>Please go to this link to continue</p>
-    <a href="${resetPasswordURL} clickTracking=off>${resetPasswordURL}</a>
+    <a href="${resetPasswordURL}" clickTracking=off>${resetPasswordURL}</a>
     `;
-  } catch (error) {}
-  res.send("Forgot Password Route");
+    try {
+      await sendResetEmail({
+        to: user.email,
+        subject: "RLink account password reset",
+        text: message,
+      });
+
+      res.status(200).json({ success: true, data: "Email Sent" });
+    } catch (error) {
+      user.resetPasswordToken = undefined;
+      user.resetPasswordExpire = undefined;
+
+      user.save();
+      return next(
+        new ErrorResponse("Error occured, Email could not be sent", 500)
+      );
+    }
+  } catch (error) {
+    next(error);
+  }
 };
 
 /* ResetPassword Block*/
