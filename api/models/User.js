@@ -46,13 +46,14 @@ UserSchema.methods.getToken = function () {
 };
 
 UserSchema.methods.getResetPasswordToken = function () {
-  const resetToken = crypto.randomBytes(35).toString("hex");
+  const resetToken = crypto.randomBytes(20).toString("hex");
   this.resetPasswordToken = crypto
     .createHash("sha256")
     .update(resetToken)
     .digest("hex");
 
   this.resetPasswordExpire = Date.now() + 2 * 60 * (60 * 1000);
+  return resetToken;
 };
 
 const User = mongoose.model("User", UserSchema);
