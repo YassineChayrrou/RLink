@@ -58,8 +58,10 @@ const Body = () => {
           </p>
         </Col>
       </Row>
-      <Container fluid className="m-5 pt-5">
-        <h1>RLink presents you the remote control of the world</h1>
+      <Container className="mt-5 pt-5">
+        <h1 style={{ textAlign: "center" }}>
+          The World Is Just A Step Away from Automation
+        </h1>
       </Container>
       <div className="start-now">
         <h1>Experience Our Solution for Free</h1>

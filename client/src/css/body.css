@@ -30,9 +30,9 @@ main p {
 }
 
 .text {
-  font-size: 70px;
+  font-size: 65px;
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(90deg, #35cfd1, #e54de7);
+  background: linear-gradient(90deg, #acd2e6, #54f7fa, #fc53ff);
   text-transform: uppercase;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
