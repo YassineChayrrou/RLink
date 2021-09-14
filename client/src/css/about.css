@@ -1,0 +1,14 @@
+.about-us {
+  height: 100vh;
+  background-image: url(../images/bg/pexels-bg-3.jpg);
+  background-size: cover;
+}
+.what-to-do {
+  height: 83.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 10rem;
+  color: white;
+}

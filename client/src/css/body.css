@@ -1,0 +1,61 @@
+main {
+  margin-top: 10rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  text-align: center;
+}
+
+main h2 {
+  margin-bottom: 3rem;
+  color: #35373c;
+}
+
+main p {
+  font-size: 18px;
+  color: #35373c;
+}
+
+.main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10rem;
+  border-radius: 10px;
+  background-image: url(../images/bg/pexels-bg-landing-1.jpg);
+  background-size: cover;
+  height: 600px;
+}
+.gradient {
+  background: linear-gradient(to right, #fdfdfd, #ebedee 70%);
+}
+
+.text {
+  font-size: 70px;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(90deg, #35cfd1, #e54de7);
+  text-transform: uppercase;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-row {
+  margin-top: 10rem;
+  padding: 2rem;
+  background-color: whitesmoke;
+}
+.c-card {
+  padding: 2rem;
+}
+
+.start-now {
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+  height: 28rem;
+  background: #1a2a6c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c);
+  background: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

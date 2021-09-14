@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../css/arrows.css";
+import "../../css/arrows.css";
 
 const Arrows = (props) => {
   const kup = window.addEventListener("keyup", arrowUp);
