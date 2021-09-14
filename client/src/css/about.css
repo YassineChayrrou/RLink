@@ -4,11 +4,11 @@
   background-size: cover;
 }
 .what-to-do {
-  height: 83.5vh;
+  height: 83vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin-left: 10rem;
-  color: white;
+  color: #1ccebe;
 }
