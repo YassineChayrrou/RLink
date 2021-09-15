@@ -2,9 +2,6 @@ import React from "react";
 import { Redirect, Route } from "react-router";
 
 const ProtectedPaths = ({ component: Component, ...rest }) => {
-  // const isLoggedIn = () => {
-  //     localStorage.getItem("authToken")
-  // }
   return (
     <div>
       <Route
