@@ -10,7 +10,7 @@ const Login = ({ history }) => {
 
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
-      history.push("/control");
+      history.push("/dashboard");
     }
   }, [history]);
 
@@ -30,10 +30,10 @@ const Login = ({ history }) => {
         config
       );
 
-      console.log(data);
+      // console.log(data);
       localStorage.setItem("authToken", data.token);
 
-      history.push("/control");
+      history.push("/dashboard");
     } catch (error) {
       setError(error.response.data.error);
 

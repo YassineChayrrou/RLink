@@ -12,7 +12,7 @@ const Register = ({ history }) => {
 
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
-      history.push("/control");
+      history.push("/dashboard");
     }
   }, [history]);
 
@@ -44,7 +44,7 @@ const Register = ({ history }) => {
 
       localStorage.setItem("authToken", data.token);
 
-      history.push("/control");
+      history.push("/dashboard");
     } catch (error) {
       setError(error.response.data.error);
 
