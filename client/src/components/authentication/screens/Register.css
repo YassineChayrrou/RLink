@@ -1,0 +1,95 @@
+.register-form-container {
+  display: flex;
+  position: relative;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url(../../../images/bg/pexels-bg-authentication.jpg);
+  background-size: cover;
+}
+
+.nav {
+  display: block;
+  position: absolute;
+  right: 4rem;
+  top: 2rem;
+  /* background-color: thistle; */
+  text-decoration: none;
+}
+
+.register-form {
+  height: 40rem;
+  width: 23rem;
+  background-color: thistle;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 18px;
+}
+
+.register-form h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
+
+.register-form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 90%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+}
+
+label {
+  padding-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.terms-text {
+  font-size: 0.9rem;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+.btn-style {
+  width: 100%;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-weight: 100;
+  margin-top: 1rem;
+}
+
+.register-or {
+  position: relative;
+  padding-top: 1rem;
+  width: 100%;
+  text-align: center;
+}
+.span-or {
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  transform: translate(-50%, 50%);
+  background-color: thistle;
+  color: #918e91;
+  text-align: center;
+  padding: 0 15px;
+  font-size: 1.2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  .register-form {
+    width: inherit;
+  }
+}
