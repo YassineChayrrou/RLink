@@ -8,18 +8,19 @@ import Home from "./components/Home";
 import About from "./components/About";
 //Private screens
 import ProtectedPaths from "./components/authentication/routing/ProtectedPaths";
-import Control from "./components/ros/Control";
 import Login from "./components/authentication/screens/Login";
 import Register from "./components/authentication/screens/Register";
 import ForgotPassword from "./components/authentication/screens/ForgotPassword";
 import ResetPassword from "./components/authentication/screens/ResetPassword";
+import PrivateScreen from "./components/authentication/screens/PrivateScreen";
+// import ErrorPage from "./components/ErrorPage.js";
 
 const App = () => {
   return (
     <div>
       <Router>
         <Switch>
-          <ProtectedPaths exact path="/control" component={Control} />
+          <ProtectedPaths exact path="/dashboard" component={PrivateScreen} />
           <Route path="/" exact component={Home}></Route>
           <Route path="/login" exact component={Login}></Route>
           <Route path="/register" exact component={Register}></Route>
