@@ -37,7 +37,7 @@ const Register = ({ history }) => {
 
     try {
       const { data } = await axios.post(
-        "/api/auth/register",
+        "http://127.0.0.1:5000/api/auth/register",
         { username, email, password },
         config
       );

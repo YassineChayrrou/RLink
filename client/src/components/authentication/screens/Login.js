@@ -24,17 +24,17 @@ const Login = ({ history }) => {
     };
 
     try {
-      const { data } = axios.post(
+      const { data } = await axios.post(
         "http://127.0.0.1:5000/api/auth/login",
         { email, password },
         config
       );
 
+      console.log(data);
       localStorage.setItem("authToken", data.token);
 
       history.push("/control");
     } catch (error) {
-      console.log(error.response);
       setError(error.response.data.error);
 
       setTimeout(() => {
@@ -74,7 +74,7 @@ const Login = ({ history }) => {
           <label htmlFor="password">Password:</label>
           <input
             className="form-control"
-            type="text"
+            type="password"
             required
             id="password"
             placeholder="Enter password"
