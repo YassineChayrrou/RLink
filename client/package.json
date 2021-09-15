@@ -2,6 +2,8 @@
   "name": "r-link",
   "version": "1.0.0",
   "description": "Realtime navigation and analog control of remote ros enabled robots react web application",
+  "proxy":"http://127.0.0.1:5000",
+  "private": true,
   "main": "src/index.js",
   "scripts": {
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
@@ -26,6 +28,7 @@
     "prettier": "2.2.1"
   },
   "dependencies": {
+    "axios": "^0.21.4",
     "components": "^0.1.0",
     "react": "17.0.1",
     "react-bootstrap": "^1.6.1",
