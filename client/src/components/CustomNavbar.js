@@ -54,13 +54,13 @@ class CustomNavbar extends Component {
               </Nav.Link>
               <Nav.Link
                 as={Link}
-                to="/auth"
+                to="/login"
                 className="m-auto"
                 style={navItemStyle}
               >
                 Login
               </Nav.Link>
-              <Nav.Link as={Link} to="/auth" className="m-auto">
+              <Nav.Link as={Link} to="/register" className="m-auto">
                 <Button variant="secondary" size="sm">
                   Signup
                 </Button>

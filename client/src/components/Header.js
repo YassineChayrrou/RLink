@@ -12,7 +12,7 @@ const Header = () => {
         <h2>Your Platform for Ultimate Control</h2>
         <h2>New Way to Supervize Robots</h2>
         <p>Get started, get Linked!</p>
-        <Button76 btn={"Start now"} path={"/about"}>
+        <Button76 btn={"Start now"} path={"/register"}>
           Start RLink Now
         </Button76>
       </div>
