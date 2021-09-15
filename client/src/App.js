@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import About from "./components/About";
 //Private screens
-import PrivatePath from "./components/authentication/routing/PrivatePath";
+import ProtectedPaths from "./components/authentication/routing/ProtectedPaths";
 import Control from "./components/ros/Control";
 import Login from "./components/authentication/screens/Login";
 import Register from "./components/authentication/screens/Register";
@@ -19,7 +19,7 @@ const App = () => {
     <div>
       <Router>
         <Switch>
-          <PrivatePath exact path="/control" component={Control} />
+          <ProtectedPaths exact path="/control" component={Control} />
           <Route path="/" exact component={Home}></Route>
           <Route path="/login" exact component={Login}></Route>
           <Route path="/register" exact component={Register}></Route>
