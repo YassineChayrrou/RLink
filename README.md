@@ -7,7 +7,7 @@ RLink is a MERN stack web app that helps users control ROS enabled robots throug
 Given that this project is in it's alpha release what you can do is very limited however pretty fun to play around with.
 - currenty, you can navigate your robot using built in arrow and joystick controllers.
 - Monitor robot position within a map in the web interface
-- Connect and Disconnect as a registered user, the auth api is fully JWT authentication, and its fully implemented with forgot password and email retrieval option.
+- Connect and Disconnect as a registered user, the authentication api is fully implemented with options such as forgot password and email retrieval option using mail server etc...
 
 **What you will eventually be able to do:**
 
@@ -46,5 +46,58 @@ $ tree -L 1
 ```
 </pre>
 
+<br />
+
+**I. ROS_setup folder:**
 1. setting up your ROS environment:
+
     - go to [ROS_setup](https://github.com/YassineChayrrou/RLink/tree/main/ROS_setup) folder a guideline exists there
+
+    - you can setup your own ros workspace to test inside the interface however you need to look up your `rostopic list` and find your navigation topic to subscribe to inside the platform, usually it is `cmd_vel/`
+
+    - Please follow the entirety of the guideline on setting up your environment more details are [there](https://github.com/YassineChayrrou/RLink/tree/main/ROS_setup)
+
+
+**II. client folder:**
+
+1. setting up client server:
+
+    > This folder contains all the frontend code using reactjs to be able to run client server follow steps bleow:
+
+    - go to the [client](https://github.com/YassineChayrrou/RLink/tree/main/client) folder full instructions are there.
+
+    - make sure after setup to run your client server by:
+    ```
+    $ cd client     //path to client folder inside RLink
+    $ npm run dev
+    ```
+
+    - any issues make sure you followed installation correctly and check your node version 14+, i think it can run on version 12+ but do check.
+    If there still is problem raise an issue i will be glad to help.
+
+**III. api folder:**
+
+1. setting up the backend api server:
+
+    > This folder contains the backend code using express, mongo and other node packages, follow steps below to run the backend api server:
+
+    - make sure to read and follow the instructions inside the [api](https://github.com/YassineChayrrou/RLink/tree/main/api) folder.
+
+    - there is a `config.env.backup` use it to put your credentials to run your db and mail server from within the application. For more read carefully the instructions at the api/ folder
+
+    - run backend server by typing:
+    ```
+    npm run server
+    ```
+    **Note:** it should say connected to port 5000 and mongodb connected
+    - any issues please check you nodejs version 14+, i think it works as well on verion 12+ but please do check.
+    If there still is problem raise an issue i will be glad to help.
+
+## Contributers:
+
+| Contributer | Github | LinkedIn |
+| ----------- | ------ | -------- |
+| Yassine Chayrrou | [@YassineChayrrou](https://github.com/YassineChayrrou) | not yet |
+
+# Author:
+Yassine Chayrrou
