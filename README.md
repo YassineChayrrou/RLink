@@ -99,5 +99,6 @@ $ tree -L 1
 | ----------- | ------ | -------- |
 | Yassine Chayrrou | [@YassineChayrrou](https://github.com/YassineChayrrou) | not yet |
 
-# Author:
+## Author:
+
 Yassine Chayrrou

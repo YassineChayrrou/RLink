@@ -129,3 +129,7 @@ $ sudo apt install ros-noetic-turtlebot3
 - more on ROS and applications here at [youtube](https://www.youtube.com/watch?v=Qkm8VtdOds4)
 
 Now you can move to next section of this ros tutorial [here]()
+
+## Author:
+
+Yassine Chayrrou
