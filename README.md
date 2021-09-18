@@ -57,12 +57,11 @@ $ tree -L 1
 
     - Please follow the entirety of the guideline on setting up your environment more details are [there](https://github.com/YassineChayrrou/RLink/tree/main/ROS_setup)
 
-
 **II. client folder:**
 
 1. setting up client server:
 
-    > This folder contains all the frontend code using reactjs to be able to run client server follow steps bleow:
+    > This folder contains all the frontend code using reactjs to be able to run client server follow steps below:
 
     - go to the [client](https://github.com/YassineChayrrou/RLink/tree/main/client) folder full instructions are there.
 
@@ -81,16 +80,16 @@ $ tree -L 1
 
     > This folder contains the backend code using express, mongo and other node packages, follow steps below to run the backend api server:
 
-    - make sure to read and follow the instructions inside the [api](https://github.com/YassineChayrrou/RLink/tree/main/api) folder.
+    - make sure to read and follow the instructions inside the [api/](https://github.com/YassineChayrrou/RLink/tree/main/api) folder.
 
-    - there is a `config.env.backup` use it to put your credentials to run your db and mail server from within the application. For more read carefully the instructions at the api/ folder
+    - there is a `config.env.backup` use it to put your credentials to run your db and mail server from within the application. For more read carefully the instructions at the [api/] folder
 
     - run backend server by typing:
     ```
-    npm run server
+    $ npm run server
     ```
     **Note:** it should say connected to port 5000 and mongodb connected
-    - any issues please check you nodejs version 14+, i think it works as well on verion 12+ but please do check.
+    - any issues please check your nodejs version is 14+, i think it works as well on verion 12+ but please do check.
     If there still is problem raise an issue i will be glad to help.
 
 ## Contributers:
