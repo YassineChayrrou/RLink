@@ -46,7 +46,8 @@ class CustomNavbar extends Component {
               </Nav.Link>
               <Nav.Link
                 as={Link}
-                to="/contact"
+                // to="/contact"
+                to="/control"
                 className="m-auto"
                 style={navItemStyle}
               >
