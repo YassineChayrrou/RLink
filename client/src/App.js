@@ -14,6 +14,7 @@ import ForgotPassword from "./components/authentication/screens/ForgotPassword";
 import ResetPassword from "./components/authentication/screens/ResetPassword";
 import PrivateScreen from "./components/authentication/screens/PrivateScreen";
 // import ErrorPage from "./components/ErrorPage.js";
+import Control from "./components/ros/Control";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
             component={ResetPassword}
           ></Route>
           <Route path="/about" component={About}></Route>
+          <Route path="/control" component={Control}></Route>
         </Switch>
       </Router>
     </div>
