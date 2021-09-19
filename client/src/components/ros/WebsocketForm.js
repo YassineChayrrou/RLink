@@ -22,6 +22,10 @@ const WebsocketForm = () => {
     display: isConnected ? "block" : "none",
   };
 
+  useEffect(() => {}, []);
+
+  const listRosTopics = async () => {};
+
   return (
     <Container>
       <Form

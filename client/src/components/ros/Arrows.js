@@ -1,96 +1,99 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "../../css/arrows.css";
 
 const Arrows = (props) => {
-  const kup = window.addEventListener("keyup", arrowUp);
-  const dup = window.addEventListener("keydown", arrowDown);
+  const vel = { x: 0, y: 0 };
 
-  function teleoperationPublisher(e) {
+  const handleDown = (event) => {
+    if (event.keyCode === 38) {
+      document.querySelector("#up").classList.add("press");
+      vel.y = 10;
+    } else if (event.keyCode === 40) {
+      document.querySelector("#down").classList.add("press");
+      vel.y = -0.5;
+    } else if (event.keyCode === 37) {
+      document.querySelector("#left").classList.add("press");
+      vel.x = -0.2;
+    } else if (event.keyCode === 39) {
+      document.querySelector("#right").classList.add("press");
+      vel.x = 0.2;
+    } else if (event.keyCode === 32) {
+      document.querySelector("#space").classList.add("press");
+      vel.x = 0;
+      vel.y = 0;
+    }
+    return;
+  };
+
+  const handleUp = (event) => {
+    if (event.keyCode === 38) {
+      document.querySelector("#up").classList.remove("press");
+    } else if (event.keyCode === 40) {
+      document.querySelector("#down").classList.remove("press");
+    } else if (event.keyCode === 37) {
+      document.querySelector("#left").classList.remove("press");
+    } else if (event.keyCode === 39) {
+      document.querySelector("#right").classList.remove("press");
+    } else if (event.keyCode === 32) {
+      document.querySelector("#space").classList.remove("press");
+    }
+    return;
+  };
+
+  // handles keyDown twist message
+  const handleMove = (e) => {
+    handleDown(e);
+    handleUp(e);
     const cmdVel = new window.ROSLIB.Topic({
       ros: props.ros,
-      name: "/cmd_vel",
-      // name: "/turtle1/cmd_vel",
+      name: props.topic,
       messageType: "geometry_msgs/Twist",
     });
+    console.log(cmdVel);
 
     const twist = new window.ROSLIB.Message({
       linear: {
-        x: e.y,
+        x: vel.y,
         y: 0,
         z: 0,
       },
       angular: {
         x: 0,
         y: 0,
-        z: -e.x,
+        z: -vel.x,
+      },
+    });
+    console.log(twist);
+    cmdVel.publish(twist);
+  };
+
+  // handles arrows keyup twist message
+  const handleStop = (e) => {
+    const cmdVel = new window.ROSLIB.Topic({
+      ros: props.ros,
+      name: props.topic,
+      messageType: "geometry_msgs/Twist",
+    });
+
+    const twist = new window.ROSLIB.Message({
+      linear: {
+        x: 0,
+        y: 0,
+        z: 0,
+      },
+      angular: {
+        x: 0,
+        y: 0,
+        z: 0,
       },
     });
     cmdVel.publish(twist);
-  }
+  };
 
-  function arrowUp(e) {
-    const twist = {
-      x: 0,
-      y: 0,
-      default: function () {
-        this.x = 0;
-        this.y = 0;
-      },
-    };
-
-    if (e.keyCode === 38) {
-      up.classList.remove("press");
-    } else if (e.keyCode === 37) {
-      left.classList.remove("press");
-    } else if (e.keyCode === 40) {
-      down.classList.remove("press");
-    } else if (e.keyCode === 39) {
-      right.classList.remove("press");
-    } else if (e.keyCode === 32) {
-      space.classList.remove("press");
-    }
-    teleoperationPublisher(twist.default());
-  }
-
-  function arrowDown(e) {
-    const twist = {
-      x: 0,
-      y: 0,
-      default: function () {
-        this.x = 0;
-        this.y = 0;
-      },
-    };
-
-    if (e.keyCode === 38) {
-      up.classList.add("press");
-      twist.y = 0.9;
-      teleoperationPublisher(twist);
-    }
-    if (e.keyCode === 37) {
-      left.classList.add("press");
-      twist.x = -2;
-      teleoperationPublisher(twist);
-    }
-    if (e.keyCode === 40) {
-      down.classList.add("press");
-      twist.y = -0.9;
-      teleoperationPublisher(twist);
-    }
-    if (e.keyCode === 39) {
-      right.classList.add("press");
-      twist.x = 2;
-      teleoperationPublisher(twist);
-    }
-    if (e.keyCode === 32) {
-      space.classList.add("press");
-      twist.default;
-      teleoperationPublisher(twist);
-    } else {
-      twist.default;
-      teleoperationPublisher(twist);
-    }
-  }
+  useEffect(() => {
+    document.addEventListener("keydown", handleMove);
+    // document.addEventListener("keyup", handleStop);
+  }, []);
 
   return (
     <div>

@@ -8,21 +8,21 @@ const Teleoperation = (props) => {
     // ROS publisher on the topic cmd_vel
     const cmdVel = new window.ROSLIB.Topic({
       ros: props.ros,
-      //   name: "/cmd_vel",
-      name: "/turtle1/cmd_vel",
+      name: props.topic,
+      // name: "/turtle1/cmd_vel",
       messageType: "geometry_msgs/Twist",
     });
 
     const twist = new window.ROSLIB.Message({
       linear: {
-        x: e.y,
+        x: e.y / 100,
         y: 0,
         z: 0,
       },
       angular: {
         x: 0,
         y: 0,
-        z: -e.x,
+        z: -e.x / 100,
       },
     });
     cmdVel.publish(twist);
@@ -31,8 +31,8 @@ const Teleoperation = (props) => {
   const handleStop = (e) => {
     const cmdVel = new window.ROSLIB.Topic({
       ros: props.ros,
-      //   name: "/cmd_vel",
-      name: "/turtle1/cmd_vel",
+      name: props.topic,
+      // name: "/turtle1/cmd_vel",
       messageType: "geometry_msgs/Twist",
     });
 
