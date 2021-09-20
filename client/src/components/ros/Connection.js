@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Alert, Container, Col, Row } from "react-bootstrap";
 import Teleoperation from "./Teleoperation";
-import Navigation from "./Navigation";
+import Map from "./Map";
 import Arrows from "./Arrows";
 import RobotState from "./RobotState";
 
@@ -106,7 +106,7 @@ class Connection extends Component {
             <Row className="d-flex justify-content-center align-items-center">
               <RobotState ros={this.state.ros} />
               <Col xs="auto" className="my-3">
-                <Navigation />
+                <Map ros={this.state.ros} />
               </Col>
               <Col xs="auto" className="my-3">
                 <Teleoperation

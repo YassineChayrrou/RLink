@@ -9,7 +9,6 @@ const Teleoperation = (props) => {
     const cmdVel = new window.ROSLIB.Topic({
       ros: props.ros,
       name: props.topic,
-      // name: "/turtle1/cmd_vel",
       messageType: "geometry_msgs/Twist",
     });
 
@@ -32,7 +31,6 @@ const Teleoperation = (props) => {
     const cmdVel = new window.ROSLIB.Topic({
       ros: props.ros,
       name: props.topic,
-      // name: "/turtle1/cmd_vel",
       messageType: "geometry_msgs/Twist",
     });
 
