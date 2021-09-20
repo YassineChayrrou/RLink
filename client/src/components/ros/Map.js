@@ -5,8 +5,8 @@ const Map = (props) => {
   const mapView = () => {
     const viewer = new window.ROS2D.Viewer({
       divID: "map",
-      width: 640,
-      height: 480,
+      width: 540,
+      height: 380,
     });
     let navigationClient = new window.NAV2D.OccupancyGridClientNav({
       ros: props.ros,
