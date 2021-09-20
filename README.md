@@ -92,11 +92,21 @@ $ tree -L 1
     - any issues please check your nodejs version is 14+, i think it works as well on verion 12+ but please do check.
     If there still is problem raise an issue i will be glad to help.
 
+## Resources:
+
+Resources for this project:
+- robot web tools website [here](http://robotwebtools.org/tools.html)
+    - => contains all ros javascript libraries i used to help interacting with rosbridge websocket
+- ros wiki rosbridge section [here](https://wiki.ros.org/rosbridge_suite)
+- ros wiki map visualization [here](https://wiki.ros.org/ros2djs/Tutorials/VisualizingAMap)
+- ros wiki ros state publisher [here](https://wiki.ros.org/robot_state_publisher)
+- google / youtube / stackoverflow dah!!!
+
 ## Contributers:
 
 | Contributer | Github | LinkedIn |
 | ----------- | ------ | -------- |
-| Yassine Chayrrou | [@YassineChayrrou](https://github.com/YassineChayrrou) | not yet |
+| Yassine Chayrrou | [@YassineChayrrou](https://github.com/YassineChayrrou) | [linkedin](fakelinkunclickable) |
 
 ## Author:
 
