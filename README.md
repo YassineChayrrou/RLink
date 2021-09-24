@@ -23,6 +23,15 @@ Given that this project is in it's alpha release what you can do is very limited
 **What i am currently doing:**
 - ...
 
+## ScreenShots:
+
+<div>
+    <img alt="Home page" src="https://github.com/YassineChayrrou/RLink/blob/main/screenshots/RLink-1.png" width="500px">
+    <img alt="Login" src="https://github.com/YassineChayrrou/RLink/blob/main/screenshots/RLink-5.png" width="500px">
+</div>
+<br />
+
+- Checkout more in [screenshots/](https://github.com/YassineChayrrou/RLink/tree/main/screenshots)
 
 ## Installation :
 
