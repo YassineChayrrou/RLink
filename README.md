@@ -2,6 +2,18 @@
 
 RLink is a MERN stack web app that helps users control ROS enabled robots through a web interface, all you need to do is run rosbridge on your robot, connect to the websocket provided in the platform, and it will take care of the rest.
 
+## ScreenShots:
+
+<div>
+    <img alt="Home page" src="https://github.com/YassineChayrrou/RLink/blob/main/screenshots/RLink-1.png" width="500px">
+    <img alt="Login" src="https://github.com/YassineChayrrou/RLink/blob/main/screenshots/RLink-5.png" width="500px">
+</div>
+<br />
+
+- Checkout more in [screenshots/](https://github.com/YassineChayrrou/RLink/tree/main/screenshots)
+
+## About:
+
 **What you can do:**
 
 Given that this project is in it's alpha release what you can do is very limited however pretty fun to play around with.
@@ -23,15 +35,6 @@ Given that this project is in it's alpha release what you can do is very limited
 **What i am currently doing:**
 - ...
 
-## ScreenShots:
-
-<div>
-    <img alt="Home page" src="https://github.com/YassineChayrrou/RLink/blob/main/screenshots/RLink-1.png" width="500px">
-    <img alt="Login" src="https://github.com/YassineChayrrou/RLink/blob/main/screenshots/RLink-5.png" width="500px">
-</div>
-<br />
-
-- Checkout more in [screenshots/](https://github.com/YassineChayrrou/RLink/tree/main/screenshots)
 
 ## Installation :
 
